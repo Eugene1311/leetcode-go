@@ -1,6 +1,9 @@
 package binary_watch
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 var turnedOnToHours = map[int][]string{
 	0: {"0"},
@@ -33,7 +36,7 @@ func readBinaryWatch(turnedOn int) []string {
 		minutes := turnedOnToMinutes[turnedOnMinutes]
 		for _, hour := range hours {
 			for _, minute := range minutes {
-				result = append(result, hour+":"+minute)
+				result = append(result, strings.Join([]string{hour, minute}, ":"))
 			}
 		}
 	}
